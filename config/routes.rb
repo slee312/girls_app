@@ -2,8 +2,10 @@ GirlsApp::Application.routes.draw do
 
   root to: "static_pages#home"
 
-  match "/contact", to: "static_pages#contact"
-
+  match "/auth/:provider/callback", to: "sessions#create" 
+  match "/signout", to: "sessions#destroy"
+  match "/help", to: "static_pages#help"
+  match "/privacy", to: "static_pages#privacy"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
