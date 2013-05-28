@@ -1,12 +1,10 @@
 class SessionsController < ApplicationController
   def create
     auth = request.env['omniauth.auth']
-    unless @auth = Authorization.find_from_hash(auth)
-      @auth = Authorization.create_from_hash(auth, current_user)
-    end
+    @auth = Authorization.update_or_create_from_hash(auth)
 
     self.current_user = @auth.user
-    flash['success'] = "Welcome, " + auth['info']['name'] + "!"
+    flash['success'] = "Welcome, " + auth['info']['first_name'] + "!"
     redirect_to root_url
   end
 
