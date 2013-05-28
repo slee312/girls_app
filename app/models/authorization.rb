@@ -7,7 +7,7 @@ class Authorization < ActiveRecord::Base
   def self.update_or_create_from_hash(hash)
     if old_entry = find_by_provider_and_uid(hash['provider'], hash['uid'])
       old_entry.access_token = hash['credentials']['token']
-      old_entry.token_expiry_date = hash['credentials']['expires_at']
+      old_entry.token_expiry_date = Time.at(hash['credentials']['expires_at'])
       old_entry.save
       old_entry
     else
@@ -27,7 +27,7 @@ class Authorization < ActiveRecord::Base
     temp_author.uid = hash['uid']
     temp_author.provider = hash['provider']
     temp_author.access_token = hash['credentials']['token']
-    temp_author.token_expiry_date = hash['credentials']['expires_at']
+    temp_author.token_expiry_date = Time.at(hash['credentials']['expires_at'])
     temp_author.save
     temp_author
   end
