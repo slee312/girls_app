@@ -1,17 +1,19 @@
 <header class = "navbar navbar-fixed-top navbar-inverse">
   <div class = "navbar-inner">
     <div class = "container">
-      <a class = "logo" href = "#">Girls App</a>
+      <%= link_to "Girls App", root_url, class: "logo" %>
       <span class = "pull-right">
         <ul class = "nav">
-          <li>
           <% if signed_in? %>
-            <a href="/signout">Sign out</a></li>
+           <li><%= link_to "Home", home_url %></li> 
+           <li><%= link_to "Explore", explore_url %></li> 
+           <li><%= link_to "Recommendations", recommend_url %></li> 
+           <li><%= link_to "Help", help_url %></li> 
+           <li><%= link_to "Sign out", signout_url %></li> 
           <% else %>
-            <a href="/auth/facebook">Sign in</a></li>
+           <li><%= link_to "Sign in", "/auth/facebook" %></li> 
+           <li><%= link_to "Help", help_url %></li> 
           <% end %>
-          <li><a href="/help">Help</a></li>
-          <li><a href="/privacy">Privacy</a></li>
         </ul>
       </span>
     </div>

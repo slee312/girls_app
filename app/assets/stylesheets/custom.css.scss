@@ -5,6 +5,9 @@
   text-align: center;
 }
 
+h1 {
+  color: #CC0033;
+}
 h3 {
   color: #FFF;
 }
@@ -19,6 +22,11 @@ body {
    -webkit-border-radius: 10px;
    -khtml-border-radius: 10x;
    border-radius: 10px;
+}
+
+.regular-container {
+  background-color: #FFF;
+  padding:10px 10px 10px 10px;
 }
 
 
@@ -38,7 +46,7 @@ body {
     a {
       margin-top:.2em;
       &:hover {
-        color: crimson !important;
+        color: #FFF !important;
       }
     }
   }
@@ -81,16 +89,22 @@ body {
 /* footer */
 .footer {
   border-top:1px solid #000;
+  padding-top:10px;
+  color: #666;
 }
-.end-notes {
+a.end-links {
   font-size: 1em;
   color: #999;
+  &:hover {
+    color:#FF9999;
+    text-decoration:none;
+  }
 }
 
 
 /* misc */
 .reg-reminder {
-  color: #DDD;
+  color: #AAA;
 }
 
 a.dark-bg {

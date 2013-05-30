@@ -14,11 +14,9 @@
         </h3>
         <br />
         <p>
-          <%= link_to("Explore Your Circles!", "#", class: "btn btn-primary btn-large")  %>
+          <%= link_to("Explore Now!", "/explore", class: "btn btn-primary btn-large")  %>
           <br /><br />
-          <% unless signed_in? %>
-          <span class ="reg-reminder">Login with your <%= link_to "Facebook", "/auth/facebook", class: "dark-bg" %>!</span>
-          <% end %>
+          <span class ="reg-reminder">*Login with your Facebook!</span>
         </p>
       </div>
     </div>
