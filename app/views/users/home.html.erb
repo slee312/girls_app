@@ -1,6 +1,9 @@
 <% provide(:title, "Home") %>
 <section class = "regular-container">
 <div class = "container">
+  <% flash.each do |key, value| %>
+    <div class = "alert alert-<%= key %>"><%= value %></div>
+  <% end %>
   <h1>Home</h1>
   <br />
   <br />

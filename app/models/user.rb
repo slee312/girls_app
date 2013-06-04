@@ -34,5 +34,22 @@ class User < ActiveRecord::Base
   def fb_token
     authorizations.find_by_provider("facebook").access_token
   end
+
+  def store_facebook_info
+    self.first_name = user_info.first_name
+    self.last_name = user_info.last_name 
+    self.gender = user_info.gender
+    self.birthday = user_info.birthday.to_datetime
+    self.hometown = user_info.hometown.name
+    self.email = user_info.email
+    self.uid = user_info.identifier
+    self.hometown = user_info.hometown.name
+    user_info.education.each do |edu|
+      self.school = edu.school.name
+    end
+      
+    #add more attriutes later
+    self.save
+  end
   
 end

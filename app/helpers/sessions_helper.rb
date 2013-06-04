@@ -7,4 +7,5 @@ module SessionsHelper
   def store_location
     session[:last_location] = request.url
   end
+
 end

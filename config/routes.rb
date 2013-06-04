@@ -11,7 +11,6 @@ GirlsApp::Application.routes.draw do
   match "/about", to: "static_pages#about"
   match "/home", to: "users#home"
   match "/explore", to: "users#explore"
-  match "/recommend", to: "users#recommend"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
