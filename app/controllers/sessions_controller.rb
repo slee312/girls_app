@@ -11,7 +11,6 @@ class SessionsController < ApplicationController
 
       self.current_user.store_facebook_info
       info = current_user.user_info
-      flash['warning'] = "#{info.first_name} #{info.last_name} #{info.gender} #{info.email} #{info.identifier}"
     end
 
     redirect_back_or home_url

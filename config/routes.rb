@@ -2,7 +2,7 @@ GirlsApp::Application.routes.draw do
 
   root to: "static_pages#home"
 
-  match "/auth/:provider/callback", to: "sessions#create" 
+  match "/auth/facebook/callback", to: "sessions#create" 
   match "/auth/failure", to: redirect('/')
   match "/signout", to: "sessions#destroy"
   match "/help", to: "static_pages#help"

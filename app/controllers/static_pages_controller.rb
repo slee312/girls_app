@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
     if signed_in?
       redirect_to home_url
     end
-    @app_name = "Girls App"
+    @app_name = "Pebbles"
   end
   def help
 

@@ -1,12 +1,48 @@
 <% provide(:title, "Home") %>
 <section class = "regular-container">
 <div class = "container">
-  <% flash.each do |key, value| %>
-    <div class = "alert alert-<%= key %>"><%= value %></div>
-  <% end %>
-  <h1>Home</h1>
-  <br />
-  <br />
+  <div class = "row">
+    <% flash.each do |key, value| %>
+      <div class = "alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+  </div>
+  <div class = "row">
+    <div class = "span5">
+      <h2>Profile Info</h2> 
+      <%= image_tag current_user.user_info.picture + "?height=200", class: "pull-left", style: "width:100px;" %>
+      <div class = "pull-left" style = "padding-left:10px;">
+        &nbsp; <b>Name:</b> <%= current_user.name %><br />
+        &nbsp; <b>Email:</b> <%= current_user.email %><br />
+        &nbsp; <b>Gender:</b> <%= current_user.gender %><br />
+        &nbsp; <b>School:</b> <%= current_user.school %><br />
+        &nbsp; <b>Hometown:</b> <%= current_user.hometown %><br />
+        <br />
+      </div>
+      <div style = "clear:both;">
+        <a href = "http://www.facebook.com">Edit Info On Facebook</a><br /><br />
+        <u>Likes</u><br />
+        <% if current_user.user_info.likes.count > 0 %>
+          <% current_user.user_info.likes.each do |item| %>
+            <%= item.name %><br />
+          <% end %>
+        <% else %>
+          <span class = "sub-msg">You really don't like anything?</span>
+        <% end %>
+      </div>
+    </div>
+    <div class = "span7">
+    <h1>Matches</h1>
+      <% matches = current_user.matched_ppl %>
+      <% if matches.count > 0 %>
+        <% matches.each do |match| %>
+          You matched with <%= match %>
+        <% end %> 
+      <% else %>
+        <span class = "sub-msg">No matches yet. Go <a href = "/explore">explore</a>!</span>
+      <% end %>
+    </div>
+  </div>
+
   <br />
 </div>
 </section>

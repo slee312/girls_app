@@ -5,5 +5,10 @@
   <br />
   <br />
   <br />
+  <% counter = 0 %>
+  <% @scrambled[0].each do |item|  %>
+     <div><%= item.name %> (<%= @scrambled[1][counter] %>)</div>
+     <% counter += 1 %>
+  <% end %>
 </div>
 </section>

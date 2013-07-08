@@ -1,3 +1,5 @@
 class Match < ActiveRecord::Base
-  attr_accessible :user1, :user2
+  belongs_to :user
+  belongs_to :match, class_name: "User"
+  attr_accessible :user, :match
 end
