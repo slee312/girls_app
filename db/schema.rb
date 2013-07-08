@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130623043040) do
+ActiveRecord::Schema.define(:version => 20130708043852) do
 
   create_table "acceptances", :force => true do |t|
     t.string   "user_id"
@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(:version => 20130623043040) do
     t.string   "uid"
     t.string   "name"
     t.string   "gender"
-    t.string   "likes"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.text     "likes",      :limit => 4294967295
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
   create_table "friendships", :force => true do |t|
