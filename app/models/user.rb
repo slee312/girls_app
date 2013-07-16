@@ -39,9 +39,10 @@ class User < ActiveRecord::Base
   end
 
   def self.find_or_create_from_hash!(hash)
-    unless user = find_by_name(hash['info']['name'])
+    unless user = find_by_uid(hash['uid'])
       user = create
       user.name = hash['info']['name']
+      user.uid = hash['uid']
       user.save
     end
     user
@@ -77,7 +78,7 @@ class User < ActiveRecord::Base
     end
       
     if !self.friends_updated || self.friends_updated < 1.week.ago
-      update_friends_list
+      #update_friends_list
       self.friends_updated = Time.now
     end 
 
@@ -93,7 +94,7 @@ class User < ActiveRecord::Base
       if !old_list.include?(guy.identifier)
         friendships.create!(friend_id: guy.identifier)
         if !Friend.find_by_uid(guy.identifier)
-          Friend.create(name: guy.name, gender: guy.gender, uid: guy.identifier, likes: guy.likes.map { |a| a })
+          #Friend.create(name: guy.name, gender: guy.gender, uid: guy.identifier, likes: guy.likes.map { |a| a })
         end
       end
     end
